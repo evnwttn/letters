@@ -10,16 +10,25 @@ export const submitLetterHandler = async ({
 }: SubmitLetterHandlerProps) => {
   let isMounted = true;
   toggleSubmitting(true);
-  setFormMessage("Submitting Letter...");
+  setFormMessage("Submitting Letter... ✉");
 
-  const handleResponse = () => {
-    setSubmittedLetter(true);
+  const handleResponse = (success: boolean) => {
+    if (success) {
+      setSubmittedLetter(true);
+      toggleSubmitting(false);
+
+      return;
+    }
+
+    setFormMessage("Your letter was lost in the mail :( ✉");
     toggleSubmitting(false);
   };
 
   axios
     .post(lambdaRoutes.submitLetter, letter)
-    .then((res: any) => isMounted && console.log(res))
+    .then(
+      (res: any) => isMounted && handleResponse(res.data.success as boolean)
+    )
     .catch(function (error: any) {
       console.log(error);
     });

@@ -19,7 +19,7 @@ export const Form = ({ setSubmittedLetter }: FormProps) => {
   const onSubmit = ({ name, message }: Letter) => {
     if (!validateName(name)) {
       setFormMessage(
-        "Names must be between 1-35 characters, and contain no special characters ($%&@#) or numbers."
+        "Names must be between 1-35 characters, and contain no special characters ($%&@#) or numbers ✉"
       );
 
       setNameFieldError(true);
@@ -29,7 +29,7 @@ export const Form = ({ setSubmittedLetter }: FormProps) => {
 
     if (!validateMessage(message)) {
       setFormMessage(
-        "Messages must be less than 280 characters and not contain the phrase 'chicken tenders'."
+        "Messages must be less than 280 characters and not contain the phrase 'chicken tenders' ✉"
       );
 
       setMessageFieldError(true);
