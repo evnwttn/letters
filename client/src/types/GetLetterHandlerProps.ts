@@ -3,4 +3,5 @@ import { Letter } from ".";
 
 export interface GetLetterHandlerProps {
   setRecievedLetter: Dispatch<SetStateAction<Letter | undefined>>;
+  setFormMessage: Dispatch<SetStateAction<string>>;
 }

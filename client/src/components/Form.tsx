@@ -1,15 +1,15 @@
 import { useState, useRef } from "react";
 import { Box, TextField, IconButton } from "@mui/material";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import { formSx } from "../styles";
 import { FormProps, Letter, SubmitLetterHandlerProps } from "../types";
 import { validateName, validateMessage } from "../utilities";
 import { submitLetterHandler } from "../handlers/submitLetterHandler";
 
-export const Form = ({ setSubmittedLetter }: FormProps) => {
-  const [formMessage, setFormMessage] = useState<string>(
-    "Leave your name and message below ✉"
-  );
+export const Form = ({
+  setSubmittedLetter,
+  formMessage,
+  setFormMessage,
+}: FormProps) => {
   const [submitting, toggleSubmitting] = useState<boolean>(false);
   const [nameFieldError, setNameFieldError] = useState<boolean>(false);
   const [messageFieldError, setMessageFieldError] = useState<boolean>(false);
@@ -46,10 +46,10 @@ export const Form = ({ setSubmittedLetter }: FormProps) => {
   };
 
   return (
-    <Box sx={formSx.container}>
-      <Box sx={formSx.textFieldDiv.wrap}>
-        <Box sx={formSx.textFieldDiv}>
-          <Box sx={formSx.message}>{formMessage}</Box>
+    <Box>
+      <Box>
+        <Box>
+          <Box>{formMessage}</Box>
           <TextField
             disabled={submitting}
             error={nameFieldError}
@@ -57,7 +57,6 @@ export const Form = ({ setSubmittedLetter }: FormProps) => {
             id="name-field"
             inputRef={nameField}
             variant="outlined"
-            sx={formSx.textField}
           />
           <TextField
             disabled={submitting}
@@ -66,7 +65,6 @@ export const Form = ({ setSubmittedLetter }: FormProps) => {
             id="message-field"
             inputRef={messageField}
             variant="outlined"
-            sx={formSx.textField}
           />
           <IconButton
             disabled={submitting}

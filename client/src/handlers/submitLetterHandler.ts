@@ -16,11 +16,12 @@ export const submitLetterHandler = async ({
     if (success) {
       setSubmittedLetter(true);
       toggleSubmitting(false);
+      setFormMessage("Retrieving Letter... ✉");
 
       return;
     }
 
-    setFormMessage("Your letter was lost in the mail :( ✉");
+    setFormMessage("Your letter was lost in the mail... ✉");
     toggleSubmitting(false);
   };
 

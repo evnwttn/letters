@@ -17,6 +17,13 @@ provider:
       Resource: arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:service}-letterTable-${sls:stage}
 
 functions:
+  getLetter:
+    handler: src/functions/getLetter.handler
+    events:
+      - http:
+          path: serverlessSetup/getLetter
+          method: get
+          cors: true
   submitLetter:
     handler: src/functions/submitLetter.handler
     events:

@@ -7,10 +7,16 @@ import { getLetterHandler } from "../handlers";
 export const App = () => {
   const [submittedLetter, setSubmittedLetter] = useState<boolean>(false);
   const [recievedLetter, setRecievedLetter] = useState<Letter | undefined>();
+  const [formMessage, setFormMessage] = useState<string>(
+    "Leave your name and message below ✉"
+  );
 
   useEffect(() => {
     if (submittedLetter) {
-      getLetterHandler({ setRecievedLetter } as GetLetterHandlerProps);
+      getLetterHandler({
+        setRecievedLetter,
+        setFormMessage,
+      } as GetLetterHandlerProps);
     }
   }, [submittedLetter]);
 
@@ -20,7 +26,11 @@ export const App = () => {
         {recievedLetter ? (
           <MessageBox recievedLetter={recievedLetter} />
         ) : (
-          <Form setSubmittedLetter={setSubmittedLetter} />
+          <Form
+            setSubmittedLetter={setSubmittedLetter}
+            formMessage={formMessage}
+            setFormMessage={setFormMessage}
+          />
         )}
       </Box>
     </Box>
