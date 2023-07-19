@@ -12,6 +12,16 @@ export const handler: APIGatewayProxyHandler = async (
   try {
     const requestBody = JSON.parse(event.body as string);
     const { name, message } = requestBody;
+
+    if (!name || !message) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          error: "Missing required fields: name and/or message",
+        }),
+      };
+    }
+
     const id = uuidv4();
 
     const dynamoDb = new AWS.DynamoDB.DocumentClient();
@@ -24,11 +34,18 @@ export const handler: APIGatewayProxyHandler = async (
       },
     };
 
-    await dynamoDb.put(putParams).promise();
+    try {
+      await dynamoDb.put(putParams).promise();
+    } catch (error) {
+      console.error("Database error:", error);
+    }
 
     const response = {
       statusCode: 200,
-      body: JSON.stringify({ name, message }),
+      body: JSON.stringify({
+        message: `Letter from ${name} successfully uploaded.`,
+        success: true,
+      }),
       headers: {
         "Access-Control-Allow-Origin": "http://127.0.0.1:5173",
         "Access-Control-Allow-Credentials": true,

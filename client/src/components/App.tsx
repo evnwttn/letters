@@ -4,7 +4,12 @@ import { MessageBox, Form } from ".";
 import { Letter } from "../types";
 
 export const App = () => {
+  const [submittedLetter, setSubmittedLetter] = useState<boolean>(false);
   const [recievedLetter, setRecievedLetter] = useState<Letter | undefined>();
+
+  useEffect(() => {
+    console.log(submittedLetter);
+  }, [submittedLetter]);
 
   useEffect(() => {
     console.log(recievedLetter);
@@ -16,7 +21,7 @@ export const App = () => {
         {recievedLetter ? (
           <MessageBox recievedLetter={recievedLetter} />
         ) : (
-          <Form setRecievedLetter={setRecievedLetter} />
+          <Form setSubmittedLetter={setSubmittedLetter} />
         )}
       </Box>
     </Box>

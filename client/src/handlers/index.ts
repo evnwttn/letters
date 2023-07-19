@@ -1,5 +1,6 @@
 export { submitLetterHandler } from "./submitLetterHandler";
 
 export const lambdaRoutes = {
-  submitLetter: "",
+  submitLetter:
+    "https://mdyr331c3c.execute-api.us-east-1.amazonaws.com/dev/serverlessSetup/submitLetter",
 };

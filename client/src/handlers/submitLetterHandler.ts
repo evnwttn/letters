@@ -6,11 +6,16 @@ export const submitLetterHandler = async ({
   letter,
   setFormMessage,
   toggleSubmitting,
-  setRecievedLetter,
+  setSubmittedLetter,
 }: SubmitLetterHandlerProps) => {
   let isMounted = true;
+  toggleSubmitting(true);
+  setFormMessage("Submitting Letter...");
 
-  console.log(letter);
+  const handleResponse = () => {
+    setSubmittedLetter(true);
+    toggleSubmitting(false);
+  };
 
   axios
     .post(lambdaRoutes.submitLetter, letter)

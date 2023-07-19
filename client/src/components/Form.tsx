@@ -6,7 +6,7 @@ import { FormProps, Letter, SubmitLetterHandlerProps } from "../types";
 import { validateName, validateMessage } from "../utilities";
 import { submitLetterHandler } from "../handlers/submitLetterHandler";
 
-export const Form = ({ setRecievedLetter }: FormProps) => {
+export const Form = ({ setSubmittedLetter }: FormProps) => {
   const [formMessage, setFormMessage] = useState<string>(
     "Leave your name and message below ✉"
   );
@@ -41,7 +41,7 @@ export const Form = ({ setRecievedLetter }: FormProps) => {
       letter: { name, message },
       setFormMessage,
       toggleSubmitting,
-      setRecievedLetter,
+      setSubmittedLetter,
     } as SubmitLetterHandlerProps);
   };
 
