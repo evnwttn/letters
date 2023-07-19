@@ -1,3 +1,3 @@
 import { palette } from ".";
 
-export const formSx = {};
+export const appSx = {};
