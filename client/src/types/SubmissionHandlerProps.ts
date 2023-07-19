@@ -1,7 +1,9 @@
+import { Dispatch, SetStateAction } from "react";
 import { Submission } from ".";
 
 export interface SubmissionHandlerProps {
   submission: Submission;
-  setFormMessage: React.Dispatch<React.SetStateAction<string>>;
-  toggleSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+  setFormMessage: Dispatch<SetStateAction<string>>;
+  toggleSubmitting: Dispatch<SetStateAction<boolean>>;
+  setRecievedSubmission: Dispatch<SetStateAction<Submission | undefined>>;
 }

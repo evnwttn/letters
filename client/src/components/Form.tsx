@@ -1,12 +1,12 @@
 import { useState, useRef } from "react";
 import { Box, TextField, IconButton } from "@mui/material";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import { Submission, SubmissionHandlerProps } from "../types";
-import { validateMessage, validateName } from "../utilities";
+import { FormProps, Submission, SubmissionHandlerProps } from "../types";
+import { validateName, validateMessage } from "../utilities";
 import { formSx } from "../styles";
 import { submissionHandler } from "../handlers/submissionHandler";
 
-export const Form = () => {
+export const Form = ({ setRecievedSubmission }: FormProps) => {
   const [formMessage, setFormMessage] = useState<string>(
     "Leave your name and message."
   );
@@ -41,6 +41,7 @@ export const Form = () => {
       submission: { name, message },
       setFormMessage,
       toggleSubmitting,
+      setRecievedSubmission,
     } as SubmissionHandlerProps);
   };
 
