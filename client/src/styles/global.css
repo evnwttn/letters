@@ -1,7 +1,11 @@
 html, body {
-    background-color: #F4EAE0;
+    background-image: linear-gradient(#F4EAE0
+    , #FDFDF9);
     color: #393938;
     font-family: owners-text, sans-serif;
     overflow-x: hidden;
-    margin-right: calc(-1 * (100vw - 100%));
+    margin: 0;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
