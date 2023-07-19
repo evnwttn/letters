@@ -1,19 +1,18 @@
 import { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import { MessageBox, Form } from ".";
-import { Letter } from "../types";
+import { GetLetterHandlerProps, Letter } from "../types";
+import { getLetterHandler } from "../handlers";
 
 export const App = () => {
   const [submittedLetter, setSubmittedLetter] = useState<boolean>(false);
   const [recievedLetter, setRecievedLetter] = useState<Letter | undefined>();
 
   useEffect(() => {
-    console.log(submittedLetter);
+    if (submittedLetter) {
+      getLetterHandler({ setRecievedLetter } as GetLetterHandlerProps);
+    }
   }, [submittedLetter]);
-
-  useEffect(() => {
-    console.log(recievedLetter);
-  }, [recievedLetter]);
 
   return (
     <Box>
