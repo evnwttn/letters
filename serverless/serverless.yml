@@ -1,0 +1,43 @@
+service: serverlessSetup
+
+provider:
+  name: aws
+  runtime: "nodejs16.x"
+  region: us-east-1
+  environment:
+    DYNAMODB_LETTER_TABLE: ${self:service}-letterTable-${sls:stage}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:PutItem"
+        - "dynamodb:Get*"
+        - "dynamodb:Scan*"
+        - "dynamodb:UpdateItem"
+        - "dynamodb:DeleteItem"
+      Resource: arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:service}-letterTable-${sls:stage}
+
+functions:
+  submitLetter:
+    handler: src/functions/submitLetter.handler
+    events:
+      - http:
+          path: serverlessSetup/submitLetter
+          method: post
+          cors: true
+
+plugins:
+  - serverless-plugin-typescript
+
+resources:
+  Resources:
+    LetterTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        BillingMode: PAY_PER_REQUEST
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        TableName: ${self:service}-letterTable-${sls:stage}
