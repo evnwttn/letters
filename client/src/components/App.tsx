@@ -24,7 +24,12 @@ export const App = () => {
     <Box>
       <Box>
         {recievedLetter ? (
-          <MessageBox recievedLetter={recievedLetter} />
+          <MessageBox
+            recievedLetter={recievedLetter}
+            setSubmittedLetter={setSubmittedLetter}
+            setRecievedLetter={setRecievedLetter}
+            setFormMessage={setFormMessage}
+          />
         ) : (
           <Form
             setSubmittedLetter={setSubmittedLetter}

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Box, TextField, IconButton } from "@mui/material";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import { FormProps, Letter, SubmitLetterHandlerProps } from "../types";
 import { validateName, validateMessage } from "../utilities";
 import { submitLetterHandler } from "../handlers/submitLetterHandler";
@@ -76,7 +76,7 @@ export const Form = ({
               } as Letter)
             }
           >
-            <AddCircleOutlineOutlinedIcon />
+            <MailOutlineIcon />
           </IconButton>
         </Box>
       </Box>
