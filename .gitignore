@@ -106,6 +106,7 @@ dist
 
 # Serverless directories
 .serverless/
+.build/
 
 # FuseBox cache
 .fusebox/
@@ -125,3 +126,4 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
