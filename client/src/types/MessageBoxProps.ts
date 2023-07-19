@@ -1,5 +1,5 @@
-import { Submission } from ".";
+import { Letter } from ".";
 
 export interface MessageBoxProps {
-  recievedSubmission: Submission | undefined;
+  recievedLetter: Letter | undefined;
 }

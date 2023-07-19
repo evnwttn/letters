@@ -1,4 +1,4 @@
 export type { FormProps } from "./FormProps";
 export type { MessageBoxProps } from "./MessageBoxProps";
-export type { Submission } from "./Submission";
-export type { SubmissionHandlerProps } from "./SubmissionHandlerProps";
+export type { Letter } from "./Letter";
+export type { SubmitLetterHandlerProps } from "./SubmitLetterHandlerProps";

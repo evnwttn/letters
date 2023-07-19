@@ -1,5 +1,5 @@
-export { submissionHandler } from "./submissionHandler";
+export { submitLetterHandler } from "./submitLetterHandler";
 
 export const lambdaRoutes = {
-  submissionHandler: "",
+  submitLetter: "",
 };

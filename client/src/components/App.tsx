@@ -1,24 +1,22 @@
 import { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import { MessageBox, Form } from ".";
-import { Submission } from "../types";
+import { Letter } from "../types";
 
 export const App = () => {
-  const [recievedSubmission, setRecievedSubmission] = useState<
-    Submission | undefined
-  >();
+  const [recievedLetter, setRecievedLetter] = useState<Letter | undefined>();
 
   useEffect(() => {
-    console.log(recievedSubmission);
-  }, [recievedSubmission]);
+    console.log(recievedLetter);
+  }, [recievedLetter]);
 
   return (
     <Box>
       <Box>
-        {recievedSubmission ? (
-          <MessageBox recievedSubmission={recievedSubmission} />
+        {recievedLetter ? (
+          <MessageBox recievedLetter={recievedLetter} />
         ) : (
-          <Form setRecievedSubmission={setRecievedSubmission} />
+          <Form setRecievedLetter={setRecievedLetter} />
         )}
       </Box>
     </Box>

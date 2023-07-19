@@ -1,5 +1,5 @@
 import { MessageBoxProps } from "../types";
 
-export const MessageBox = ({ recievedSubmission }: MessageBoxProps) => {
+export const MessageBox = ({ recievedLetter }: MessageBoxProps) => {
   return <>MessageBox</>;
 };

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
-import { Submission } from ".";
+import { Letter } from ".";
 
 export interface FormProps {
-  setRecievedSubmission: Dispatch<SetStateAction<Submission | undefined>>;
+  setRecievedLetter: Dispatch<SetStateAction<Letter | undefined>>;
 }

@@ -1,14 +1,14 @@
 import { useState, useRef } from "react";
 import { Box, TextField, IconButton } from "@mui/material";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import { FormProps, Submission, SubmissionHandlerProps } from "../types";
-import { validateName, validateMessage } from "../utilities";
 import { formSx } from "../styles";
-import { submissionHandler } from "../handlers/submissionHandler";
+import { FormProps, Letter, SubmitLetterHandlerProps } from "../types";
+import { validateName, validateMessage } from "../utilities";
+import { submitLetterHandler } from "../handlers/submitLetterHandler";
 
-export const Form = ({ setRecievedSubmission }: FormProps) => {
+export const Form = ({ setRecievedLetter }: FormProps) => {
   const [formMessage, setFormMessage] = useState<string>(
-    "Leave your name and message."
+    "Leave your name and message below ✉"
   );
   const [submitting, toggleSubmitting] = useState<boolean>(false);
   const [nameFieldError, setNameFieldError] = useState<boolean>(false);
@@ -16,7 +16,7 @@ export const Form = ({ setRecievedSubmission }: FormProps) => {
   const nameField = useRef<HTMLInputElement>();
   const messageField = useRef<HTMLInputElement>();
 
-  const onSubmit = ({ name, message }: Submission) => {
+  const onSubmit = ({ name, message }: Letter) => {
     if (!validateName(name)) {
       setFormMessage(
         "Names must be between 1-35 characters, and contain no special characters ($%&@#) or numbers."
@@ -37,12 +37,12 @@ export const Form = ({ setRecievedSubmission }: FormProps) => {
       return;
     }
 
-    submissionHandler({
-      submission: { name, message },
+    submitLetterHandler({
+      letter: { name, message },
       setFormMessage,
       toggleSubmitting,
-      setRecievedSubmission,
-    } as SubmissionHandlerProps);
+      setRecievedLetter,
+    } as SubmitLetterHandlerProps);
   };
 
   return (
@@ -75,7 +75,7 @@ export const Form = ({ setRecievedSubmission }: FormProps) => {
               onSubmit({
                 name: nameField.current?.value ?? "no name",
                 message: messageField.current?.value ?? "no message",
-              } as Submission)
+              } as Letter)
             }
           >
             <AddCircleOutlineOutlinedIcon />

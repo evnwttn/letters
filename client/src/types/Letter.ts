@@ -1,4 +1,4 @@
-export interface Submission {
+export interface Letter {
   name: string;
   message: string;
 }

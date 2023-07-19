@@ -1,18 +1,19 @@
 import axios from "axios";
 import { lambdaRoutes } from ".";
-import { SubmissionHandlerProps } from "../types";
+import { SubmitLetterHandlerProps } from "../types";
 
-export const submissionHandler = async ({
-  submission,
+export const submitLetterHandler = async ({
+  letter,
   setFormMessage,
   toggleSubmitting,
-}: SubmissionHandlerProps) => {
+  setRecievedLetter,
+}: SubmitLetterHandlerProps) => {
   let isMounted = true;
 
-  console.log({ submission, setFormMessage, toggleSubmitting });
+  console.log(letter);
 
   axios
-    .post(lambdaRoutes.submissionHandler, submission)
+    .post(lambdaRoutes.submitLetter, letter)
     .then((res: any) => isMounted && console.log(res))
     .catch(function (error: any) {
       console.log(error);
