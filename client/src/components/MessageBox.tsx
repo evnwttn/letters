@@ -33,9 +33,16 @@ export const MessageBox = ({
           <Box>Your letter was lost in the mail...</Box>
         )}
       </Box>
-      <IconButton id="reset-button" onClick={handleReset}>
-        <ReplayIcon />
-      </IconButton>
+      <Box sx={messageBoxSx.iconDiv}>
+        <IconButton
+          sx={messageBoxSx.icon}
+          disableRipple
+          id="reset-button"
+          onClick={handleReset}
+        >
+          <ReplayIcon />
+        </IconButton>
+      </Box>
     </Box>
   );
 };

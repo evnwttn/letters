@@ -13,8 +13,21 @@ export const messageBoxSx = {
     backgroundColor: palette.sand,
     border: `1px solid  ${palette.black}`,
   },
+  iconDiv: {
+    display: "flex",
+    flexFlow: "row nowrap",
+    justifyContent: "center",
+    width: "100%",
+  },
   icon: {
-    color: palette.black,
-    fontSize: "1.4vw",
+    svg: {
+      color: palette.black,
+      fontSize: "1.5vw",
+      "&:hover": {
+        background: "none",
+        color: palette.yellow,
+        cursor: "pointer",
+      },
+    },
   },
 };

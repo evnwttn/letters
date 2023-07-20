@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { Box, TextField, Button } from "@mui/material";
-import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import { FormProps, Letter, SubmitLetterHandlerProps } from "../types";
 import { validateName, validateMessage } from "../utilities";
 import { submitLetterHandler } from "../handlers/submitLetterHandler";
