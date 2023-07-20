@@ -12,7 +12,7 @@ export const getLetterHandler = async ({
     if (letter) {
       setRecievedLetter(letter);
     } else {
-      setFormMessage("Your letter was lost in the mail... ✉");
+      setFormMessage("Your letter was lost in the mail...");
     }
   };
 

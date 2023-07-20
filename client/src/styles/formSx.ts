@@ -21,15 +21,12 @@ export const formSx = {
   },
   button: {
     color: palette.black,
+    textTransform: "capitalize",
     mr: "0.5vw",
     fontSize: "1.05vw",
-    icon: {
-      color: palette.black,
-      fontSize: "1.4vw",
-    },
     "&:hover": {
       background: "none",
-      opacity: "0.7",
+      color: palette.yellow,
       cursor: "pointer",
     },
   },

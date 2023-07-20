@@ -9,7 +9,7 @@ export const App = () => {
   const [submittedLetter, setSubmittedLetter] = useState<boolean>(false);
   const [recievedLetter, setRecievedLetter] = useState<Letter | undefined>();
   const [formMessage, setFormMessage] = useState<string>(
-    "Leave your name and message below... ✉"
+    "Leave your name and message below..."
   );
 
   useEffect(() => {

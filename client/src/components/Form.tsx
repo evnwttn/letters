@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Box, TextField, IconButton } from "@mui/material";
+import { Box, TextField, Button } from "@mui/material";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import { FormProps, Letter, SubmitLetterHandlerProps } from "../types";
 import { validateName, validateMessage } from "../utilities";
@@ -20,7 +20,7 @@ export const Form = ({
   const onSubmit = ({ name, message }: Letter) => {
     if (!validateName(name)) {
       setFormMessage(
-        "Names must be between 1-35 characters, and contain no special characters ($%&@#) or numbers ✉"
+        "Names must be between 1-35 characters, and contain no special characters ($%&@#) or numbers..."
       );
 
       setNameFieldError(true);
@@ -30,7 +30,7 @@ export const Form = ({
 
     if (!validateMessage(message)) {
       setFormMessage(
-        "Messages must be less than 280 characters and not contain the phrase 'chicken tenders' ✉"
+        "Messages must be less than 280 characters and not contain the phrase 'chicken tenders'..."
       );
 
       setMessageFieldError(true);
@@ -70,10 +70,11 @@ export const Form = ({
           maxRows={3}
           sx={formSx.messageField}
         />
-        <IconButton
+        <Button
           disabled={submitting}
           disableRipple
           id="submit-email"
+          sx={formSx.button}
           onClick={() =>
             onSubmit({
               name: nameField.current?.value ?? "no name",
@@ -81,9 +82,8 @@ export const Form = ({
             } as Letter)
           }
         >
-          <Box sx={formSx.button}>Send </Box>
-          <SendOutlinedIcon sx={formSx.button.icon} />
-        </IconButton>
+          <Box>Send ✉</Box>
+        </Button>
       </Box>
     </Box>
   );

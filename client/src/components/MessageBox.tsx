@@ -12,7 +12,7 @@ export const MessageBox = ({
   const handleReset = () => {
     setSubmittedLetter(false);
     setRecievedLetter(undefined);
-    setFormMessage("Leave your name and message below ✉");
+    setFormMessage("Leave your name and message below...");
   };
 
   return (
@@ -30,7 +30,7 @@ export const MessageBox = ({
             </Box>
           </Box>
         ) : (
-          <Box>Your letter was lost in the mail... ✉</Box>
+          <Box>Your letter was lost in the mail...</Box>
         )}
       </Box>
       <IconButton id="reset-button" onClick={handleReset}>

@@ -10,18 +10,18 @@ export const submitLetterHandler = async ({
 }: SubmitLetterHandlerProps) => {
   let isMounted = true;
   toggleSubmitting(true);
-  setFormMessage("Submitting Letter... ✉");
+  setFormMessage("Submitting Letter... ");
 
   const handleResponse = (success: boolean) => {
     if (success) {
       setSubmittedLetter(true);
       toggleSubmitting(false);
-      setFormMessage("Retrieving Letter... ✉");
+      setFormMessage("Retrieving Letter... ");
 
       return;
     }
 
-    setFormMessage("Your letter was lost in the mail... ✉");
+    setFormMessage("Your letter was lost in the mail...");
     toggleSubmitting(false);
   };
 
