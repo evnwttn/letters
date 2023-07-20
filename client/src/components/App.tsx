@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Box } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
 import { MessageBox, Form } from ".";
 import { GetLetterHandlerProps, Letter } from "../types";
 import { getLetterHandler } from "../handlers";
-import { appSx } from "../styles";
+import { appSx, theme } from "../styles";
 
 export const App = () => {
   const [submittedLetter, setSubmittedLetter] = useState<boolean>(false);
@@ -23,25 +23,27 @@ export const App = () => {
 
   return (
     <Box sx={appSx.wrap}>
-      <Box sx={appSx.container}>
-        <Box sx={appSx.header}>letters ✉</Box>
-        <Box sx={appSx.box}>
-          {recievedLetter ? (
-            <MessageBox
-              recievedLetter={recievedLetter}
-              setSubmittedLetter={setSubmittedLetter}
-              setRecievedLetter={setRecievedLetter}
-              setFormMessage={setFormMessage}
-            />
-          ) : (
-            <Form
-              setSubmittedLetter={setSubmittedLetter}
-              formMessage={formMessage}
-              setFormMessage={setFormMessage}
-            />
-          )}
+      <ThemeProvider theme={theme}>
+        <Box sx={appSx.container}>
+          <Box sx={appSx.header}>letters ✉</Box>
+          <Box sx={appSx.box}>
+            {recievedLetter ? (
+              <MessageBox
+                recievedLetter={recievedLetter}
+                setSubmittedLetter={setSubmittedLetter}
+                setRecievedLetter={setRecievedLetter}
+                setFormMessage={setFormMessage}
+              />
+            ) : (
+              <Form
+                setSubmittedLetter={setSubmittedLetter}
+                formMessage={formMessage}
+                setFormMessage={setFormMessage}
+              />
+            )}
+          </Box>
         </Box>
-      </Box>
+      </ThemeProvider>
     </Box>
   );
 };

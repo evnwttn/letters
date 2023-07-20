@@ -4,6 +4,7 @@ import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import { FormProps, Letter, SubmitLetterHandlerProps } from "../types";
 import { validateName, validateMessage } from "../utilities";
 import { submitLetterHandler } from "../handlers/submitLetterHandler";
+import { formSx } from "../styles";
 
 export const Form = ({
   setSubmittedLetter,
@@ -47,38 +48,42 @@ export const Form = ({
 
   return (
     <Box>
-      <Box>
-        <Box>
-          <Box>{formMessage}</Box>
-          <TextField
-            disabled={submitting}
-            error={nameFieldError}
-            label={"Name"}
-            id="name-field"
-            inputRef={nameField}
-            variant="outlined"
-          />
-          <TextField
-            disabled={submitting}
-            error={messageFieldError}
-            label={"Message"}
-            id="message-field"
-            inputRef={messageField}
-            variant="outlined"
-          />
-          <IconButton
-            disabled={submitting}
-            id="submit-email"
-            onClick={() =>
-              onSubmit({
-                name: nameField.current?.value ?? "no name",
-                message: messageField.current?.value ?? "no message",
-              } as Letter)
-            }
-          >
-            <SendOutlinedIcon />
-          </IconButton>
-        </Box>
+      <Box sx={formSx.formMessage}>{formMessage}</Box>
+      <Box sx={formSx.textFieldDiv}>
+        <TextField
+          disabled={submitting}
+          error={nameFieldError}
+          label={"Name"}
+          id="name-field"
+          inputRef={nameField}
+          variant="outlined"
+          sx={formSx.nameField}
+        />
+        <TextField
+          disabled={submitting}
+          error={messageFieldError}
+          label={"Message"}
+          id="message-field"
+          inputRef={messageField}
+          variant="outlined"
+          multiline
+          maxRows={3}
+          sx={formSx.messageField}
+        />
+        <IconButton
+          disabled={submitting}
+          disableRipple
+          id="submit-email"
+          onClick={() =>
+            onSubmit({
+              name: nameField.current?.value ?? "no name",
+              message: messageField.current?.value ?? "no message",
+            } as Letter)
+          }
+        >
+          <Box sx={formSx.button}>Send </Box>
+          <SendOutlinedIcon sx={formSx.button.icon} />
+        </IconButton>
       </Box>
     </Box>
   );

@@ -1,4 +1,5 @@
 export { palette } from "./palette";
+export { theme } from "./theme";
 
 // components
 export { appSx } from "./appSx";

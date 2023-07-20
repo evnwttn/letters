@@ -1,3 +1,36 @@
 import { palette } from ".";
 
-export const formSx = {};
+export const formSx = {
+  formMessage: {
+    mb: "1.5vw",
+    fontSize: "1.05vw",
+    width: "32vw",
+  },
+  textFieldDiv: {
+    display: "flex",
+    flexFlow: "column nowrap",
+    width: "32vw",
+  },
+  nameField: {
+    mb: "1.5vw",
+    width: "32vw",
+  },
+  messageField: {
+    mb: "1.5vw",
+    width: "32vw",
+  },
+  button: {
+    color: palette.black,
+    mr: "0.5vw",
+    fontSize: "1.05vw",
+    icon: {
+      color: palette.black,
+      fontSize: "1.4vw",
+    },
+    "&:hover": {
+      background: "none",
+      opacity: "0.7",
+      cursor: "pointer",
+    },
+  },
+};

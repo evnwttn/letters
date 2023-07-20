@@ -23,7 +23,10 @@ export const appSx = {
   },
   box: {
     backgroundColor: palette.white,
-    padding: "2.5vw",
+    paddingTop: "2.5vw",
+    paddingLeft: "2.5vw",
+    paddingRight: "2.5vw",
+    paddingBottom: "1.5vw",
     border: `1px solid ${palette.black}`,
   },
 };
