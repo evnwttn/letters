@@ -1,6 +1,7 @@
 import { Box, IconButton } from "@mui/material";
 import ReplayIcon from "@mui/icons-material/Replay";
 import { MessageBoxProps } from "../types";
+import { messageBoxSx } from "../styles";
 
 export const MessageBox = ({
   recievedLetter,
@@ -15,12 +16,18 @@ export const MessageBox = ({
   };
 
   return (
-    <Box>
+    <Box sx={messageBoxSx.wrap}>
       <Box>
         {recievedLetter ? (
           <Box>
-            <Box>Name: {recievedLetter.name}</Box>
-            <Box>Message: {recievedLetter.message}</Box>
+            <Box>
+              Name
+              <Box sx={messageBoxSx.textBox}>{recievedLetter.name}</Box>
+            </Box>
+            <Box>
+              Message
+              <Box sx={messageBoxSx.textBox}>{recievedLetter.message}</Box>
+            </Box>
           </Box>
         ) : (
           <Box>Your letter was lost in the mail... ✉</Box>
