@@ -37,7 +37,7 @@ export const handler: APIGatewayProxyHandler = async (
           letter: letter.Item,
         }),
         headers: {
-          "Access-Control-Allow-Origin": "https://evnwttn.github.io/letters",
+          "Access-Control-Allow-Origin": "https://evnwttn.github.io",
           "Access-Control-Allow-Credentials": true,
         },
       };
